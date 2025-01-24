@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  pippo:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-01-24T15:48:23.786458333Z"
+    description: A Helm chart for Kubernetes
+    digest: 4a0b5e91141acf094ae5748f9c0789004e02d7aed0942314842a9f93b36fcfdb
+    name: pippo
+    type: application
+    urls:
+    - https://dusty-82.github.io/pippo/pippo-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-01-24T15:48:23.786200582Z"
