@@ -3,25 +3,25 @@ data:
   panel: "true"
 kind: ConfigMap
 metadata:
-  name: template-pippo-card
+  name: template-pippo-test-1-card
   namespace: mlflow-system
 ---
 apiVersion: templates.krateo.io/v1alpha1
 kind: Widget
 metadata:
-  name: template-pippo-card
+  name: template-pippo-test-1-card
   namespace: mlflow-system
 spec:
   actions:
   - template:
       apiVersion: templates.krateo.io/v1alpha1
-      name: template-pippo-customform
+      name: template-pippo-test-1-customform
       namespace: mlflow-system
       resource: customforms
       verb: GET
   - template:
       apiVersion: core.krateo.io/v1alpha1
-      name: pippo
+      name: pippo-test-1
       namespace: mlflow-system
       resource: compositiondefinitions
       verb: DELETE
@@ -34,12 +34,12 @@ spec:
       title: MLFlow Model Runs
       status: ${ .getCompositionDefinition.status.conditions[] | select(.type == "Ready") | "Ready:" + .status }
   propsRef:
-    name: template-pippo-card
+    name: template-pippo-test-1-card
     namespace: mlflow-system
   type: card
   api:
   - name: getCompositionDefinition
-    path: "/apis/core.krateo.io/v1alpha1/namespaces/mlflow-system/compositiondefinitions/pippo"
+    path: "/apis/core.krateo.io/v1alpha1/namespaces/mlflow-system/compositiondefinitions/pippo-test-1"
     verb: GET
     headers:
     - 'Accept: application/json'
@@ -47,7 +47,7 @@ spec:
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: template-pippo-customform
+  name: template-pippo-test-1-customform
   namespace: mlflow-system
 data:
   onSubmitId: submit
@@ -57,12 +57,12 @@ data:
 apiVersion: templates.krateo.io/v1alpha1
 kind: CustomForm
 metadata:
-  name: template-pippo-customform
+  name: template-pippo-test-1-customform
   namespace: mlflow-system
 spec:
   type: customform
   propsRef:
-    name: template-pippo-customform
+    name: template-pippo-test-1-customform
     namespace: mlflow-system
   actions:
     - template:
